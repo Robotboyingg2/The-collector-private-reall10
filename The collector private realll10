@@ -1,0 +1,275 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("The collector", "Ocean")
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title="The collector";
+    Text="The collector custome has been injected";
+    Duration=3;
+})
+
+local Tab = Window:NewTab("Movment")
+
+
+local Section = Tab:NewSection("stuff")
+
+Section:NewButton("bypass", "ButtonInfo", function()
+    local lplr = game.Players.LocalPlayer
+            local cam = workspace.CurrentCamera
+            local oldchar
+local clone
+
+oldchar = lplr.Character
+oldchar.Archivable = true
+clone = oldchar:Clone()
+oldchar.PrimaryPart.Anchored = false
+
+local humc = oldchar.Humanoid:Clone()
+humc.Parent = lplr.Character
+game:GetService("RunService").Stepped:connect(function()
+local mag = (clone.PrimaryPart.Position - oldchar.PrimaryPart.Position).Magnitude
+if mag >= 20 then
+oldchar:SetPrimaryPartCFrame(clone.PrimaryPart.CFrame)
+end
+end)
+pcall(function()
+oldchar.PrimaryPart:GetPropertyChangedSignal("CFrame"):connect(function()
+clone:SetPrimaryPartCFrame(oldchar.PrimaryPart.CFrame)
+end)
+end)
+
+cam.CameraSubject = clone.Humanoid 
+clone.Parent = workspace
+lplr.Character = clone
+end)
+
+
+Section:NewButton("keyboard", "ButtonInfo", function()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+
+Section:NewButton("friend script", "ButtonInfo", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/exhil13/LiquidBounce4Roblox/3kdIKfmsdSf/checkgame.lua", true))()
+end)
+
+
+
+
+
+Section:NewButton("inf jump", "ButtonInfo", function()
+    local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+end)
+
+
+Section:NewButton("infinite yield", "ButtonInfo", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+
+Section:NewButton("auto toxic", "ButtonInfo", function()
+    while true do
+    wait(1)
+    for i, player in ipairs(game.Players:GetChildren()) do
+local function chat(msg)
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, "All")
+end
+
+chat("I rape children")
+wait(2.5)
+chat("Imagine not using LiquidBounce | Beta | B1.1")
+wait(2.5)
+chat("Imagine not dying to LiquidBounce | Beta | B1.1 User")
+wait(2.5)
+chat("If you kill me is cause I lag")
+wait(2.5)
+chat("also your nuub")
+chat("Try and get me lol")
+wait(2.5)
+chat("also one more thing LiquidBounce | Beta | B1.1 users on top")
+wait(2.5)
+chat("and ur ez L")
+wait(2.5)
+chat("and no I have a father unlike yu")
+wait(2.5)
+chat("I sleep; with your mom")
+ end
+end
+end)
+
+Section:NewButton("command", "ButtonInfo", function()
+    local plr = game.Players.LocalPlayer
+local DefaultTable = {}
+ 
+plr.Chatted:Connect(function(msg)
+    msg = tostring(msg)
+    for i,v in pairs(game.Players:GetPlayers()) do
+        if msg == ";kill "..v.Name or msg == ";kill "..v.DisplayName then
+            local target = v
+            plr.Character.Humanoid.Health = 0
+            local generationMethod = math.random(1,82534545)
+            local cframe = plr.Character.PrimaryPart.CFrame
+            DefaultTable[generationMethod] = true
+            plr.CharacterAdded:Connect(function()
+                if DefaultTable[generationMethod] then
+                    repeat wait()
+                        if target.Character:FindFirstChild("HumanoidRootPart") and plr.Character:FindFirstChild("HumanoidRootPart") then
+                            plr.Character.PrimaryPart.CFrame = target.Character.PrimaryPart.CFrame
+                        else
+                            DefaultTable[generationMethod] = false
+                        end
+                    until target.Character.Humanoid.Health < 1 or not target.Character or not DefaultTable[generationMethod]
+                    DefaultTable[math.random(1,82534545)] = true
+                end    
+            end)    
+        end
+end
+end)
+end)
+
+
+
+Section:NewButton("disabler v2", "ButtonInfo", function()
+    settings():GetService("NetworkSettings").IncomingReplicationLag = 99e99
+                char = lplr.Character
+                char.Archivable = true
+                clone = char:Clone()
+                clone.Parent = game:GetService("Workspace")
+                cam.CameraSubject = clone:FindFirstChild("Humanoid")
+                char.Parent = nil
+                lplr.Character = clone
+                clone:FindFirstChild("Animate").Disabled = true
+                clone:FindFirstChild("Animate").Disabled = false
+                clone:FindFirstChild("HumanoidRootPart").Anchored = false
+                settings():GetService("NetworkSettings").IncomingReplicationLag = 0
+end)
+
+
+Section:NewButton("seat disabler", "ButtonInfo", function()
+    for i, v in pairs(game:GetService("Workspace").attack_helicopter:GetDescendants()) do
+       if v.Name == "Driver" then
+           v:Destroy()
+           end
+       if v.Name == "Seat" then
+           v:Destroy() 
+       end
+end
+end)
+
+Section:NewButton("bed break", "ButtonInfo", function()
+    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = game:GetService("Workspace").bed.CFrame
+end)
+
+
+
+
+
+Section:NewButton("anti void", "ButtonInfo", function()
+        local antivoidpart = Instance.new("Part", Workspace)
+        antivoidpart.Name = "AntiVoid"
+        antivoidpart.Size = Vector3.new(2100, 0.5, 2000)
+        antivoidpart.Position = Vector3.new(160.5, 25, 247.5)
+        antivoidpart.Transparency = 0.4
+        antivoidpart.Anchored = true
+        antivoidpart.Touched:connect(function(dumbcocks)
+            if dumbcocks.Parent:WaitForChild("Humanoid") and dumbcocks.Parent.Name == lplr.Name then
+                game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+                wait(0.2)
+                game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+                wait(0.2)
+                game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+            end
+        end)
+end)
+
+
+Section:NewButton("Custome-nameTag", "ButtonInfo", function()
+    
+end)
+
+
+Section:NewButton("co-host", "ButtonInfo", function()
+   --by skys#9826
+local LP = Game:GetService("Players").LocalPlayer
+
+for i,v in pairs(LP.Backpack:GetChildren()) do
+    v.Handle.Mesh.MeshId = "rbxassetid://11228500422"
+end
+end)
+
+Section:NewToggle("gravity", "ToggleInfo", function(state)
+    if state then
+        game:GetService("Workspace").Gravity = 0
+    else
+        game:GetService("Workspace").Gravity = 192
+    end
+end)
+
+
+Section:NewButton("auto win v2", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/main/bedlol2"))()
+end)
+
+
+
+
+Section:NewToggle("Night", "ToggleInfo", function(v)
+    if v then
+        game.Lighting.TimeOfDay = "00:00:00"
+    else
+            game.Lighting.TimeOfDay = "13:00:00"
+    end
+end)
+
+
+Section:NewToggle("killaura", "test", function(state)
+    if state then
+game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title="Aura";
+    Text="Module: Aura has been enabled ";
+    Duration=3;
+})
+        local player = game:GetService("Players")
+local lplr = player.LocalPlayer
+local cam = workspace.CurrentCamera
+local KnitClient = debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
+local SwordCont = KnitClient.Controllers.SwordController
+
+local aura = false
+local DistVal = {["Value"] = 14}
+function Aura()
+    for i,v in pairs(game.Players:GetChildren()) do
+        if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
+            local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+            if mag <= DistVal["Value"] and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") then
+                if v.Character.Humanoid.Health > 0 then
+                    aura = true
+                    SwordCont:swingSwordAtMouse()
+end
+end
+end
+end
+end
+
+game:GetService("RunService").Stepped:connect(function()
+Aura()
+end)
+    else
+        print("Toggle Off")
+    end
+end)
+
+
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
+	print("You just clicked the bind")
+end)
+
+
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
